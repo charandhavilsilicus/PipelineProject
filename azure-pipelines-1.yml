@@ -30,9 +30,19 @@ steps:
  # displayName: Build
  # inputs:
  #   command: build
+- task: DockerCompose@0
+  inputs:
+    containerregistrytype: 'Azure Container Registry'
+    azureSubscription: 'Visual Studio Enterprise – MPN(ce98597e-c0dc-4e5e-af71-3b86bfd5b9db)'
+    azureContainerRegistry: '{"loginServer":"charan12282019.azurecr.io", "id" : "/subscriptions/ce98597e-c0dc-4e5e-af71-3b86bfd5b9db/resourceGroups/charanspieshopresources/providers/Microsoft.ContainerRegistry/registries/charan12282019"}'
+    dockerComposeFile: '**/docker-compose.yml'
+    action: 'Run a Docker Compose command'
  #   projects: '**/*.csproj'
  #   arguments: '--configuration Release'
 
 #steps:
 #- script: dotnet build --configuration $(buildConfiguration)
 #  displayName: 'dotnet build $(buildConfiguration)'
+
+
+
