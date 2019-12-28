@@ -22,12 +22,13 @@ steps:
 
 
 - task: DockerCompose@0
+  displayName: 'Run services'
   inputs:
-    containerregistrytype: 'Azure Container Registry'
-    azureSubscription: 'Visual Studio Enterprise – MPN(ce98597e-c0dc-4e5e-af71-3b86bfd5b9db)'
-    azureContainerRegistry: '{"loginServer":"charan12282019.azurecr.io", "id" : "/subscriptions/ce98597e-c0dc-4e5e-af71-3b86bfd5b9db/resourceGroups/charanspieshopresources/providers/Microsoft.ContainerRegistry/registries/charan12282019"}'
-    dockerComposeFile: '**/docker-compose.yml'
+    dockerComposeFile: '**/docker-compose.ci.build.yml'
     action: 'Run services'
+    detached: false
+
+
 
 #- task: DotNetCoreCLI@2
   # inputs:
